@@ -20,7 +20,6 @@ Flight.delete_all
 2.times do |i|
   Flight.create(id: i,
                 date: Date.today + i,
-                number_of_passengers: i + 1,
                 departure_airport_id: i,
                 arrival_airport_id: i + 1)
 end

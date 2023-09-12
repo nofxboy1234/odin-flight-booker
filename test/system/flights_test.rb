@@ -18,7 +18,6 @@ class FlightsTest < ApplicationSystemTestCase
     fill_in "Booking", with: @flight.booking_id
     fill_in "Date", with: @flight.date
     fill_in "Departure airport", with: @flight.departure_airport_id
-    fill_in "Number of passengers", with: @flight.number_of_passengers
     click_on "Create Flight"
 
     assert_text "Flight was successfully created"
@@ -33,7 +32,6 @@ class FlightsTest < ApplicationSystemTestCase
     fill_in "Booking", with: @flight.booking_id
     fill_in "Date", with: @flight.date
     fill_in "Departure airport", with: @flight.departure_airport_id
-    fill_in "Number of passengers", with: @flight.number_of_passengers
     click_on "Update Flight"
 
     assert_text "Flight was successfully updated"

@@ -2,14 +2,12 @@
 
 one:
   date: 2023-09-11 14:04:03
-  number_of_passengers: 1
   departure_airport: one
   arrival_airport: one
   booking: one
 
 two:
   date: 2023-09-11 14:04:03
-  number_of_passengers: 1
   departure_airport: two
   arrival_airport: two
   booking: two
