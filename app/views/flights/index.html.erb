@@ -2,11 +2,14 @@
 
 <h1>Flights</h1>
 
-<%= form_with model: Flight.new do |form| %>
+<%= form_with model: Flight.new, method: :get, url: flights_path do |form| %>
   <%= form.label :departure_airport_id %>
   <%= form.collection_select :departure_airport_id, Airport.order(:code), :id, :code %><br><br>
   <%= form.label :arrival_airport_id %>
-  <%= form.collection_select :arrival_airport_id, Airport.order(:code), :id, :code %>
+  <%= form.collection_select :arrival_airport_id, Airport.order(:code), :id, :code %><br><br>
+  <%= form.label :number_of_passengers %>
+  <%= form.select(:number_of_passengers, (1..4).map { |num| [num, num]}) %><br><br>
+  <%= form.submit 'Search flights' %>
 <% end %>
 
 <hr>
