@@ -2,6 +2,10 @@
 
 <h1>Flights</h1>
 
+<%= form_with model: Flight.new do |form| %>
+  <%= form.collection_select :departure_airport_id, Airport.order(:code), :id, :code %>
+<% end %>
+
 <div id="flights">
   <% @flights.each do |flight| %>
     <%= render flight %>
