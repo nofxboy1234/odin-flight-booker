@@ -6,4 +6,8 @@ class Flight < ApplicationRecord
   # belongs_to :booking
 
   has_many :passengers
+
+  def date_formatted
+    date.strftime("%d/%m/%Y")
+  end
 end
