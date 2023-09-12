@@ -11,9 +11,10 @@ class FlightsController < ApplicationController
       date = flight_params[:date]
       @flights = Flight.flights_matching_search(departure_airport_id, arrival_airport_id, date)
 
-      if @flights
-        render :index
-      end
+      # if @flights
+      #   # render :index
+      #   redirect_to flights_path
+      # end
     end
   end
 
