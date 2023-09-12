@@ -16,6 +16,7 @@
 
 <hr>
 
+<% if false %>
 <div id="flights">
   <% @flights.each do |flight| %>
     <%= render flight %>
@@ -26,3 +27,4 @@
 </div>
 
 <%= link_to "New flight", new_flight_path %>
+<% end %>
