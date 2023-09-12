@@ -9,9 +9,8 @@
   <%= form.collection_select :arrival_airport_id, Airport.order(:code), :id, :code %><br><br>
   <%= form.label :number_of_passengers %>
   <%= form.select(:number_of_passengers, (1..4).map { |num| [num, num]}) %><br><br>
-  <%= form.label 'date' %>
-  <%= form.date_select(:date, selected: Date.today, order: [:day, :month, :year]) %><br><br>
-  <%= select_date(Flight.dates_with_flights.first.date, order: [:day, :month, :year]) %><br><br>
+  <%= form.label :date %>
+  <%= form.collection_select(:date, Flight.dates_with_flights, :id, :date) %><br><br>
   <%= form.submit 'Search flights' %>
 <% end %>
 
