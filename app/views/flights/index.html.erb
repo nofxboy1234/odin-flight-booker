@@ -3,6 +3,7 @@
 <h1>Flights</h1>
 
 <%= form_with model: Flight.new do |form| %>
+  <%= form.label :departure_airport_id %>
   <%= form.collection_select :departure_airport_id, Airport.order(:code), :id, :code %>
 <% end %>
 
