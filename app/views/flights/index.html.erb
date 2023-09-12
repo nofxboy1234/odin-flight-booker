@@ -10,7 +10,7 @@
   <%= form.label :number_of_passengers %>
   <%= form.select(:number_of_passengers, (1..4).map { |num| [num, num]}) %><br><br>
   <%= form.label 'date' %>
-  <%= form.date_select(:date) %><br><br>
+  <%= form.date_select(:date, selected: Date.today, order: [:day, :month, :year]) %><br><br>
   <%= form.submit 'Search flights' %>
 <% end %>
 
