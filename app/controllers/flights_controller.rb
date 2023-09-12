@@ -3,8 +3,18 @@ class FlightsController < ApplicationController
 
   # GET /flights or /flights.json
   def index
-    binding.pry
-    # @flights = Flight.all
+    # binding.pry
+
+    if params[:flight]
+      departure_airport_id = flight_params[:departure_airport_id]
+      arrival_airport_id = flight_params[:arrival_airport_id]
+      date = flight_params[:date]
+      @flights = Flight.flights_matching_search(departure_airport_id, arrival_airport_id, date)
+
+      if @flights
+        render :index
+      end
+    end
   end
 
   # GET /flights/1 or /flights/1.json

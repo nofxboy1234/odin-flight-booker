@@ -16,15 +16,17 @@
 
 <hr>
 
-<% if false %>
 <div id="flights">
-  <% @flights.each do |flight| %>
-    <%= render flight %>
-    <p>
-      <%= link_to "Show this flight", flight %>
-    </p>
+  <% if @flights %>
+    <% @flights.each do |flight| %>
+      <%= render flight %>
+      <p>
+        <%= link_to "Show this flight", flight %>
+      </p>
+    <% end %>
   <% end %>
 </div>
 
+<% if false %>
 <%= link_to "New flight", new_flight_path %>
 <% end %>
