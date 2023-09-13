@@ -1,4 +1,6 @@
 class Booking < ApplicationRecord
   has_many :passengers
-  # has_one :flight
+  accepts_nested_attributes_for :passengers, allow_destroy: true, reject_if: lambda do |attributes|
+    attributes[:name].blank? || attributes[:email].blank?
+  end
 end
