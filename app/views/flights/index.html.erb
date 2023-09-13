@@ -19,7 +19,9 @@
 <div id="flights">
   <% if @flights %>
     <%= form_with method: :get, url: new_booking_path do |form| %>
-        <%= form.collection_radio_buttons :id, @flights, :id, :date %>
+        <%= form.collection_radio_buttons :id, @flights, :id, :date do |b| %>
+          <%= b.label(:"data-value" => b.value) { b.radio_button + b.text } %><br><br>
+        <% end %>
     <% end %>
   <% end %>
 </div>
