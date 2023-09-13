@@ -18,7 +18,7 @@
 
 <div id="flights">
   <% if @flights %>
-    <%= form_with method: :get, url: new_booking_path do |form| %>
+    <%= form_with scope: :selected_flight, method: :get, url: new_booking_path do |form| %>
         <%= form.collection_radio_buttons :id, @flights, :id, :date do |b| %>
           <%= b.label(:"data-value" => b.value) { b.radio_button + b.text } %><br><br>
         <% end %>
