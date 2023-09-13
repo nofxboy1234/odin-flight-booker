@@ -10,12 +10,9 @@ Flight.delete_all
 Airport.delete_all
 Booking.delete_all
 
-2.times do |i|
-  Passenger.create(id: i,
-                   name: "Passenger #{i}",
-                   email: "passenger#{i}@palmboom.com",
-                  booking_id: i,
-                  flight_id: i)
+3.times do |i|
+  Airport.create(id: i,
+                 code: "Airport #{i}")
 end
 
 2.times do |i|
@@ -24,14 +21,25 @@ end
                 departure_airport_id: i,
                 arrival_airport_id: i + 1)
 end
-
-3.times do |i|
-  Airport.create(id: i,
-                 code: "Airport #{i}")
-end
+Flight.create(id: 2,
+  date: Date.today + 1,
+  departure_airport_id: 1,
+  arrival_airport_id: 1 + 1)
 
 2.times do |i|
   Booking.create(id: i)
 end
+
+2.times do |i|
+  p1 = Passenger.create(id: i,
+                   name: "Passenger #{i}",
+                   email: "passenger#{i}@palmboom.com",
+                   booking_id: i,
+                   flight_id: i)
+  # unless p1.valid?
+  #   p1.errors.each { |error| puts error.full_message }
+  # end
+end
+
 
 
