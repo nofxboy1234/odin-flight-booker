@@ -21,6 +21,11 @@ class BookingsController < ApplicationController
     p flight.arrival_airport.code
 
     @booking = Booking.new
+
+    number_of_passengers = booking_params[:number_of_passengers]
+    number_of_passengers.to_i.times do |i|
+      p "create passenger #{i}"
+    end
   end
 
   # GET /bookings/1/edit
