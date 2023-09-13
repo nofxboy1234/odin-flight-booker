@@ -22,6 +22,7 @@
         <%= form.collection_radio_buttons :id, @flights, :id, :date do |b| %>
           <%= b.label(:"data-value" => b.value) { b.radio_button + b.text } %><br><br>
         <% end %>
+        <%= form.submit 'Make booking' %>
     <% end %>
   <% end %>
 </div>
