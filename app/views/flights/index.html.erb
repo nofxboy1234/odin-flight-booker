@@ -21,9 +21,7 @@
     <%= form_with scope: :selected_flight, method: :get, url: new_booking_path do |form| %>
         <%= form.collection_radio_buttons :id, @flights, :id, :date do |b| %>
           <div>
-            <%= b.label(:"data-value" => b.value) { b.radio_button + b.text } %><br><br>
-            <%= "departure airport: #{b.object.departure_airport.code}" %><br><br>
-            <%= "arrival airport: #{b.object.arrival_airport.code}" %><br><br>
+            <%= b.label(:"data-value" => b.value) { b.radio_button + b.text + ": #{b.object.departure_airport.code} -> #{b.object.arrival_airport.code}" } %><br><br>
           </div>
         <% end %>
         <%= form.submit 'Make booking' %>
