@@ -17,7 +17,7 @@
 <hr>
 
 <div id="flights">
-  <% if @flights %>
+  <% if @flights && @flights.length.positive? %>
     <%= form_with scope: :selected_flight, method: :get, url: new_booking_path do |form| %>
         <%= form.collection_radio_buttons :id, @flights, :id, :date do |b| %>
           <div>
