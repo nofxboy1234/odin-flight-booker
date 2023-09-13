@@ -12,6 +12,13 @@ class BookingsController < ApplicationController
 
   # GET /bookings/new
   def new
+    # p booking_params[:flight_id]
+    # p booking_params[:number_of_passengers]
+
+    flight = Flight.find(booking_params[:flight_id])
+    p flight.date
+    p flight.departure_airport.code
+    p flight.arrival_airport.code
 
     @booking = Booking.new
   end
