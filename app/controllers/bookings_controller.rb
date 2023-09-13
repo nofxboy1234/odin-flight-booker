@@ -12,20 +12,11 @@ class BookingsController < ApplicationController
 
   # GET /bookings/new
   def new
-    # p booking_params[:flight_id]
-    # p booking_params[:number_of_passengers]
-
-    flight = Flight.find(booking_params[:flight_id])
-    p flight.id
-    p flight.date
-    p flight.departure_airport.code
-    p flight.arrival_airport.code
-
+    @flight = Flight.find(booking_params[:flight_id])
     @booking = Booking.new
-
     number_of_passengers = booking_params[:number_of_passengers]
-    number_of_passengers.to_i.times do |i|
-      p "create passenger #{i}"
+    @passengers = (1..number_of_passengers.to_i).to_a.map do |i|
+      Passenger.new
     end
   end
 
