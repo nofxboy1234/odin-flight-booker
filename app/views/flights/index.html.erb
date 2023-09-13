@@ -16,17 +16,10 @@
 
 <hr>
 
-<% if @flights %>
-  <div id="flights">
-      <% @flights.each do |flight| %>
-        <%= render flight %>
-        <p>
-          <%= link_to "Show this flight", flight %>
-        </p>
-      <% end %>
-  </div>
-<% end %>
-
-<% if false %>
-<%= link_to "New flight", new_flight_path %>
-<% end %>
+<div id="flights">
+  <% if @flights %>
+    <%= form_with method: :get, url: new_booking_path do |form| %>
+        <%= form.collection_radio_buttons :id, @flights, :id, :date %>
+    <% end %>
+  <% end %>
+</div>
