@@ -16,6 +16,7 @@ class BookingsController < ApplicationController
     # p booking_params[:number_of_passengers]
 
     flight = Flight.find(booking_params[:flight_id])
+    p flight.id
     p flight.date
     p flight.departure_airport.code
     p flight.arrival_airport.code
