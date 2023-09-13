@@ -9,6 +9,7 @@ class FlightsController < ApplicationController
     arrival_airport_id = flight_params[:arrival_airport_id]
     date = flight_params[:date]
     @flights = Flight.flights_matching_search(departure_airport_id, arrival_airport_id, date)
+    @number_of_passengers = flight_params[:number_of_passengers]
   end
 
   # GET /flights/1 or /flights/1.json
@@ -69,7 +70,6 @@ class FlightsController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def flight_params
-    # params.require(:flight).permit(:date, :number_of_passengers, :departure_airport_id, :arrival_airport_id, :booking_id)
     params.require(:flight).permit(:date, :number_of_passengers, :departure_airport_id, :arrival_airport_id)
   end
 end

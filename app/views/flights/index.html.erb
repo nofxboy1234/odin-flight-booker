@@ -24,6 +24,7 @@
             <%= b.label(:"data-value" => b.value) { b.radio_button + b.text + ": #{b.object.departure_airport.code} -> #{b.object.arrival_airport.code}" } %><br><br>
           </div>
         <% end %>
+        <%= form.hidden_field :number_of_passengers, value: @number_of_passengers  %>
         <%= form.submit 'Make booking' %>
     <% end %>
   <% end %>
