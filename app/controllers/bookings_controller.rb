@@ -12,6 +12,7 @@ class BookingsController < ApplicationController
 
   # GET /bookings/new
   def new
+
     @booking = Booking.new
   end
 
@@ -65,6 +66,7 @@ class BookingsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def booking_params
-      params.fetch(:booking, {})
+      # params.fetch(:booking, {})
+      params.require(:booking).permit(:flight_id, :number_of_passengers)
     end
 end

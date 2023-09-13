@@ -18,8 +18,8 @@
 
 <div id="flights">
   <% if @flights && @flights.length.positive? %>
-    <%= form_with scope: :selected_flight, method: :get, url: new_booking_path do |form| %>
-        <%= form.collection_radio_buttons :id, @flights, :id, :date do |b| %>
+    <%= form_with scope: :booking, method: :get, url: new_booking_path do |form| %>
+        <%= form.collection_radio_buttons :flight_id, @flights, :id, :date do |b| %>
           <div>
             <%= b.label(:"data-value" => b.value) { b.radio_button + b.text + ": #{b.object.departure_airport.code} -> #{b.object.arrival_airport.code}" } %><br><br>
           </div>
