@@ -11,6 +11,8 @@
     </div>
   <% end %>
 
+  <%= form.hidden_field :flight_id, value: @flight_id %>
+
   Passengers:
   <ul>
     <%= form.fields_for :passengers do |passengers_form| %>
