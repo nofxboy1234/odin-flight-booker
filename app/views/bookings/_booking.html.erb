@@ -1,10 +1,10 @@
 <div id="<%= dom_id booking %>">
-  <div><%= @booking.flight.date %></div>
-  <div><%= @booking.flight.departure_airport.code %></div>
-  <div><%= @booking.flight.arrival_airport.code %></div>
+  <div><%= booking.flight.date %></div>
+  <div><%= booking.flight.departure_airport.code %></div>
+  <div><%= booking.flight.arrival_airport.code %></div>
   <div>
     <ul>
-      <% @booking.passengers.each do |passenger| %>
+      <% booking.passengers.each do |passenger| %>
         <li>
           <div><%= passenger.name %></div>
           <div><%= passenger.email %></div>
