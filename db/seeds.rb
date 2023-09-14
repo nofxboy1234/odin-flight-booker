@@ -27,15 +27,15 @@ Flight.create(id: 2,
   arrival_airport_id: 1 + 1)
 
 2.times do |i|
-  Booking.create(id: i)
+  Booking.create(id: i,
+                 flight_id: i)
 end
 
 2.times do |i|
   p1 = Passenger.create(id: i,
                    name: "Passenger #{i}",
                    email: "passenger#{i}@palmboom.com",
-                   booking_id: i,
-                   flight_id: i)
+                   booking_id: i)
   # unless p1.valid?
   #   p1.errors.each { |error| puts error.full_message }
   # end
