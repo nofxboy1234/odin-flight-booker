@@ -4,13 +4,13 @@
 
 <%= form_with model: Flight.new, method: :get, url: flights_path do |form| %>
   <%= form.label :departure_airport_id %>
-  <%= form.collection_select :departure_airport_id, Airport.order(:code), :id, :code %><br><br>
+  <%= form.collection_select :departure_airport_id, Airport.order(:code), :id, :code, { include_blank: 'Select Airport', selected: @departure_airport_id } %><br><br>
   <%= form.label :arrival_airport_id %>
-  <%= form.collection_select :arrival_airport_id, Airport.order(:code), :id, :code %><br><br>
+  <%= form.collection_select :arrival_airport_id, Airport.order(:code), :id, :code, { include_blank: 'Select Airport', selected: @arrival_airport_id } %><br><br>
   <%= form.label :date %>
-  <%= form.collection_select(:date, Flight.dates_with_flights, :date, :date_formatted) %><br><br>
+  <%= form.collection_select(:date, Flight.dates_with_flights, :date, :date_formatted, { selected: @date }) %><br><br>
   <%= form.label :number_of_passengers %>
-  <%= form.select(:number_of_passengers, (1..4).map { |num| [num, num]}) %><br><br>
+  <%= form.select(:number_of_passengers, (1..4).map { |num| [num, num]}, { selected: @number_of_passengers}) %><br><br>
   <%= form.submit 'Search flights' %>
 <% end %>
 

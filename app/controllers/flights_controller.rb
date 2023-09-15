@@ -5,10 +5,12 @@ class FlightsController < ApplicationController
   def index
     return unless params[:flight]
 
-    departure_airport_id = flight_params[:departure_airport_id]
-    arrival_airport_id = flight_params[:arrival_airport_id]
+    @departure_airport_id = flight_params[:departure_airport_id]
+    @arrival_airport_id = flight_params[:arrival_airport_id]
+    @date = flight_params[:date]
+
     date = flight_params[:date]
-    @flights = Flight.flights_matching_search(departure_airport_id, arrival_airport_id, date)
+    @flights = Flight.flights_matching_search(@departure_airport_id, @arrival_airport_id, date)
     @number_of_passengers = flight_params[:number_of_passengers]
   end
 
