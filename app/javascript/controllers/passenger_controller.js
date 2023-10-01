@@ -11,5 +11,8 @@ export default class extends Controller {
 
   addPassenger() {
     console.log('Add Passenger')
+
+    const clone = this.passengerItemTarget.content.cloneNode(true)
+    this.passengerListTarget.appendChild(clone)
   }
 }
