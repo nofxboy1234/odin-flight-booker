@@ -16,6 +16,8 @@
   Passengers:
   <%= tag.div data: { controller: 'passenger' } do %>
     <ul data-passenger-target='passengerList'>
+      <%= button_tag 'Add Passenger', type: 'button', data: { action: 'click->passenger#addPassenger' } %><br><br>
+      
       <%= form.fields_for :passengers do |passengers_form| %>
         <li>
           <%= passengers_form.label :name %>
@@ -29,14 +31,17 @@
 
     <%= tag.template data: { passenger_target: 'passengerItem' } do %>
       <li>
-        <%= label_tag 'booking_passengers_attributes_0_name' %>
-        <%= text_field_tag name: 'booking[passengers_attributes][0][name]', id: 'booking_passengers_attributes_0_name'  %>
-
-        <%= passengers_form.label :email %>
-        <%= passengers_form.text_field :email %>
+        <%= label_tag 'booking_passengers_attributes_2_name' do %>
+          Name
+        <% end %>
+        <%= text_field_tag 'booking[passengers_attributes][2][name]' %>
+        
+        <%= label_tag 'booking_passengers_attributes_2_email' do %>
+          Email
+        <% end %>
+        <%= text_field_tag 'booking[passengers_attributes][2][email]' %>
       </li>
     <% end %>
-    <%= button_tag 'Add Passenger', type: 'button', data: { action: 'click->passenger#addPassenger' } %><br><br>
     
   <% end %>
 
