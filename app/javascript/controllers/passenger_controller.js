@@ -35,4 +35,13 @@ export default class extends Controller {
 
     this.passengerListTarget.appendChild(clone)
   }
+
+  removePassenger(event) {
+    console.log('removePassenger')
+
+    const element = event.target
+    console.log(element)
+    console.log(element.parentElement)
+    element.parentElement.remove()
+  }
 }
