@@ -8,4 +8,8 @@ export default class extends Controller {
     console.log(this.passengerListTarget)
     console.log(this.passengerItemTarget)
   }
+
+  addPassenger() {
+    console.log('Add Passenger')
+  }
 }
