@@ -17,7 +17,7 @@
   <%= tag.div data: { controller: 'passenger' } do %>
     <ul data-passenger-target='passengerList'>
       <%= button_tag 'Add Passenger', type: 'button', data: { action: 'click->passenger#addPassenger' } %><br><br>
-      
+
       <%= form.fields_for :passengers do |passengers_form| %>
         <li>
           <%= passengers_form.label :name %>
