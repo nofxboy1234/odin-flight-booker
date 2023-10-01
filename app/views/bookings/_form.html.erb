@@ -24,19 +24,20 @@
           <%= passengers_form.label :email %>
           <%= passengers_form.text_field :email %>
         </li>
-
-        <%= tag.template data: { passenger_target: 'passengerItem' } do %>
-          <li>
-            <%= passengers_form.label :name %>
-            <%= passengers_form.text_field :name %>
-
-            <%= passengers_form.label :email %>
-            <%= passengers_form.text_field :email %>
-          </li>
-        <% end %>
       <% end %>
     </ul>
+
+    <%= tag.template data: { passenger_target: 'passengerItem' } do %>
+      <li>
+        <%= label_tag 'booking_passengers_attributes_0_name' %>
+        <%= text_field_tag name: 'booking[passengers_attributes][0][name]', id: 'booking_passengers_attributes_0_name'  %>
+
+        <%= passengers_form.label :email %>
+        <%= passengers_form.text_field :email %>
+      </li>
+    <% end %>
     <%= button_tag 'Add Passenger', type: 'button', data: { action: 'click->passenger#addPassenger' } %><br><br>
+    
   <% end %>
 
   <div>
