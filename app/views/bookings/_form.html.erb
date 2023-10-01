@@ -15,7 +15,7 @@
 
   Passengers:
   <%= tag.div data: { controller: 'passenger' } do %>
-    <ul>
+    <ul data-passenger-target='passengerList'>
       <%= form.fields_for :passengers do |passengers_form| %>
         <li>
           <%= passengers_form.label :name %>
