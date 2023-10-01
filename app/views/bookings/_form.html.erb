@@ -42,6 +42,8 @@
           Email
         <% end %>
         <%= text_field_tag 'booking[passengers_attributes][2][email]' %>
+
+        <%= button_tag 'Remove', type: 'button', data: { action: 'click->passenger#removePassenger' } %>
       </li>
     <% end %>
     
