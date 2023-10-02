@@ -1,38 +1,56 @@
 import { Controller } from '@hotwired/stimulus';
 
-// Connects to data-controller="passenger"
 export default class extends Controller {
   static targets = ['passengerList', 'passengerItem'];
 
-  connect() {
-  }
-
-  addPassenger() {
-    const clone = this.passengerItemTarget.content.cloneNode(true);
+  templateFields() {
     const passengerIndex =
       this.passengerListTarget.getElementsByTagName('li').length;
 
-    let id = `booking_passengers_attributes_${passengerIndex}_name`;
-    let idPieces = id.split('_');
-    let name = `${idPieces[0]}[${idPieces[1]}_${idPieces[2]}][${idPieces[3]}][${idPieces[4]}]`;
+    const templateFields = ['name_0', 'email_2'].map((fieldName) => {
+      let id = `booking_passengers_attributes_${passengerIndex}_${
+        fieldName.split('_')[0]
+      }`;
+      let idPieces = id.split('_');
+      let name = `${idPieces[0]}[${idPieces[1]}_${idPieces[2]}][${idPieces[3]}][${idPieces[4]}]`;
+      let startIndex = Number(fieldName.split('_')[1]);
+      let labelIndex = startIndex;
+      let textFieldIndex = startIndex + 1;
 
-    clone.firstElementChild.children[0].setAttribute('for', id);
-    clone.firstElementChild.children[1].setAttribute('id', id);
-    clone.firstElementChild.children[1].setAttribute('name', name);
+      return {
+        id: id,
+        name: name,
+        labelIndex: labelIndex,
+        textFieldIndex: textFieldIndex,
+      };
+    });
+    return templateFields;
+  }
 
-    id = `booking_passengers_attributes_${passengerIndex}_email`;
-    idPieces = id.split('_');
-    name = `${idPieces[0]}[${idPieces[1]}_${idPieces[2]}][${idPieces[3]}][${idPieces[4]}]`;
+  setTemplateAttributes(template) {
+    this.templateFields().forEach((field) => {
+      template.firstElementChild.children[field.labelIndex].setAttribute(
+        'for',
+        field.id
+      );
+      template.firstElementChild.children[field.textFieldIndex].setAttribute(
+        'id',
+        field.id
+      );
+      template.firstElementChild.children[field.textFieldIndex].setAttribute(
+        'name',
+        field.name
+      );
+    });
+  }
 
-    clone.firstElementChild.children[2].setAttribute('for', id);
-    clone.firstElementChild.children[3].setAttribute('id', id);
-    clone.firstElementChild.children[3].setAttribute('name', name);
-
-    this.passengerListTarget.appendChild(clone);
+  addPassenger() {
+    const template = this.passengerItemTarget.content.cloneNode(true);
+    this.setTemplateAttributes(template);
+    this.passengerListTarget.appendChild(template);
   }
 
   removePassenger(event) {
-
     const number_of_passengers =
       this.passengerListTarget.getElementsByTagName('li').length;
     if (number_of_passengers === 1) {

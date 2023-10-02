@@ -33,15 +33,15 @@
 
     <%= tag.template data: { passenger_target: 'passengerItem' } do %>
       <li>
-        <%= label_tag 'booking_passengers_attributes_2_name' do %>
+        <%= label_tag 'placeholder' do %>
           Name
         <% end %>
-        <%= text_field_tag 'booking[passengers_attributes][2][name]' %>
+        <%= text_field_tag 'placeholder2' %>
         
-        <%= label_tag 'booking_passengers_attributes_2_email' do %>
+        <%= label_tag 'placeholder3' do %>
           Email
         <% end %>
-        <%= text_field_tag 'booking[passengers_attributes][2][email]' %>
+        <%= text_field_tag 'placeholder4' %>
 
         <%= button_tag 'Remove', type: 'button', data: { action: 'click->passenger#removePassenger' } %>
       </li>
