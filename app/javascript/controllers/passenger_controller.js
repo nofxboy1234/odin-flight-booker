@@ -5,18 +5,12 @@ export default class extends Controller {
   static targets = ['passengerList', 'passengerItem'];
 
   connect() {
-    console.log(this.passengerListTarget);
-    console.log(this.passengerItemTarget);
   }
 
   addPassenger() {
-    console.log('Add Passenger');
-
     const clone = this.passengerItemTarget.content.cloneNode(true);
-    // console.log(this.passengerListTarget.getElementsByTagName('li'))
     const passengerIndex =
       this.passengerListTarget.getElementsByTagName('li').length;
-    // const passengerIndex = clone.firstElementChild.children.length / 2
 
     let id = `booking_passengers_attributes_${passengerIndex}_name`;
     let idPieces = id.split('_');
@@ -38,18 +32,14 @@ export default class extends Controller {
   }
 
   removePassenger(event) {
-    console.log('removePassenger');
 
     const number_of_passengers =
       this.passengerListTarget.getElementsByTagName('li').length;
     if (number_of_passengers === 1) {
-      console.log('Only 1 passenger left. Cannot remove them!')
       return;
     }
 
     const element = event.target;
-    console.log(element);
-    console.log(element.parentElement);
     element.parentElement.remove();
   }
 }
