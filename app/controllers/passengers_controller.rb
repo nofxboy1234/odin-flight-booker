@@ -25,6 +25,8 @@ class PassengersController < ApplicationController
 
     respond_to do |format|
       if @passenger.save
+        puts '************** PassengersController#create ************'
+
         format.html { redirect_to passenger_url(@passenger), notice: "Passenger was successfully created." }
         format.json { render :show, status: :created, location: @passenger }
       else
