@@ -2,7 +2,6 @@ class PassengerMailer < ApplicationMailer
   default from: 'notifications@example.com'
 
   def confirmation_email(passenger = nil)
-    binding.pry
     if params && params.has_key?(:passenger)
       @passenger = params[:passenger]
     else
